@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroTrack — Premium Flight Verification</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-plane-departure"></i> <span>Aero<strong>Track</strong></span>
+      </div>
+      <span class="tagline">Global Verification Portal</span>
+    </div>
+  </nav>
+
+  <main class="portal-container">
+    <section class="search-card">
+      <h2>Verify Flight Credentials</h2>
+      <p class="subtitle">Enter your official confirmation code to pull real-time flight data logs, routing itineraries, and documentation.</p>
+      
+      <div class="input-wrapper">
+        <i class="fas fa-ticket-alt input-icon"></i>
+        <input type="text" id="confirmation-code" placeholder="e.g., AU9102" autocomplete="off" spellcheck="false">
+      </div>
+      
+      <button class="btn-search" onclick="checkConfirmationCode()">
+        <span>Retrieve Flight Logs</span> <i class="fas fa-arrow-right"></i>
+      </button>
+      
+      <div class="error-box" id="error-message">
+        <i class="fas fa-exclamation-circle"></i> Invalid code format. Please verify your reference number and try again.
+      </div>
+    </section>
+
+    <section class="result-card" id="result-card">
+      <div class="success-header">
+        <div class="pulse-indicator"></div>
+        <span>Record Discovered Successfully</span>
+      </div>
+      
+      <div class="flight-data-preview">
+        <i class="fas fa-file-pdf file-icon"></i>
+        <div class="file-details">
+          <h3>Official Flight Manifest & Details</h3>
+          <p>Secure digital document format (PDF)</p>
+        </div>
+      </div>
+
+      <a id="pdf-url" href="#" target="_blank" class="btn-download">
+        <i class="fas fa-cloud-download-alt"></i> Access Passenger Dashboard
+      </a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
