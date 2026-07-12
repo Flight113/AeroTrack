@@ -1,4 +1,3 @@
-// Database definition for verification codes
 const codes = {
   "AU9102": "https://drive.google.com/file/d/1PvvaVOiLXJtA42XUVXAqrrp-q9t3bOgJ/view?usp=drivesdk",
   "DL1133": "https://drive.google.com/file/d/12vuZ82XXAh-SnYiXPTpItuOhbnzca3Zr/view?usp=drivesdk",
@@ -10,31 +9,36 @@ const codes = {
 };
 
 function checkConfirmationCode() {
-  const inputElement = document.getElementById("confirmation-code");
-  const input = inputElement.value.trim().toUpperCase();
-  
+  const input = document.getElementById("confirmation-code").value.trim().toUpperCase();
   const errorBox = document.getElementById("error-message");
   const resultCard = document.getElementById("result-card");
   const pdfUrl = document.getElementById("pdf-url");
 
   if (codes[input]) {
-    // Correct Code Condition: Clear error, load destination, reveal pane
     errorBox.style.display = "none";
     pdfUrl.href = codes[input];
     resultCard.style.display = "block";
-    
-    // Smooth scroll straight down to the result card on mobile screens
     resultCard.scrollIntoView({ behavior: 'smooth' });
   } else {
-    // Incorrect Code Condition: Reset view metrics, throw visual warning
     resultCard.style.display = "none";
     errorBox.style.display = "block";
   }
 }
 
-// Allow user to execute verification by simply clicking the 'Enter' key
-document.getElementById("confirmation-code").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    checkConfirmationCode();
+// Banner Slideshow Logic matching your previous portal style setup
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
   }
-});
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  if(slides.length > 0) {
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 4000); // Transitions slide views every 4 seconds
+  }
+}
