@@ -6,6 +6,8 @@
     --font-heading: 'Helvetica Neue', Arial, sans-serif;
 }
 
+* { box-sizing: border-box; }
+
 body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #fcfcfc; overflow-x: hidden; }
 
 /* Header Branding Layout with Nesting Logo Elements */
@@ -33,7 +35,6 @@ body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #fcf
 .slideshow-container { position: relative; height: 320px; overflow: hidden; background: #000; }
 .mySlides { display: none; }
 .mySlides img { height: 320px; width: 100%; object-fit: cover; opacity: 0.5; transform: scale(1); transition: transform 4s ease; }
-/* Subtle dynamic zoom effect to beautify the slides */
 .mySlides[style*="display: block"] img { transform: scale(1.05); }
 
 .hero-text-overlay { position: absolute; top: 50%; left: 20px; transform: translateY(-50%); color: white; animation: fadeInUp 1s ease; }
@@ -79,11 +80,26 @@ button:active { transform: scale(0.98); }
 .partner-logos-container { display: flex; justify-content: center; align-items: center; gap: 30px; }
 .partner-logo { max-width: 130px; filter: grayscale(100%); opacity: 0.45; }
 
-/* Responsive View Rules */
+/* Desktop View Rules */
 @media (min-width: 768px) { 
     .info-grid { grid-template-columns: repeat(4, 1fr); } 
     .hero-text-overlay h1 { font-size: 3rem; }
     .slideshow-container, .mySlides img { height: 380px; }
+}
+
+/* Dedicated Mobile Smart-Fit Adjustments */
+@media (max-width: 480px) {
+    .slideshow-container, .mySlides img { height: 240px; }
+    .hero-text-overlay h1 { font-size: 1.6rem; }
+    .hero-text-overlay p { font-size: 0.95rem; }
+    .tracker-input-container { padding: 15px 10px; }
+
+    /* Vertical conversion prevents side text clipping */
+    .input-group { flex-direction: column; border: none; gap: 10px; }
+    input { width: 100%; border: 2px solid #ddd; border-radius: 6px; padding: 14px; font-size: 0.9rem; }
+    button { width: 100%; padding: 14px; border-radius: 6px; font-size: 0.9rem; height: auto; }
+    
+    .result-display-box { margin: 0 10px 20px 10px; padding: 15px !important; }
 }
 
 /* Animations Layout Keyframe Specifications */
