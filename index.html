@@ -1,63 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AeroTrack — Premium Flight Verification</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTrack | Premium Flight Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <i class="fas fa-plane-departure"></i> <span>Aero<strong>Track</strong></span>
-      </div>
-      <span class="tagline">Global Verification Portal</span>
-    </div>
-  </nav>
-
-  <main class="portal-container">
-    <section class="search-card">
-      <h2>Verify Flight Credentials</h2>
-      <p class="subtitle">Enter your official confirmation code to pull real-time flight data logs, routing itineraries, and documentation.</p>
-      
-      <div class="input-wrapper">
-        <i class="fas fa-ticket-alt input-icon"></i>
-        <input type="text" id="confirmation-code" placeholder="e.g., AU9102" autocomplete="off" spellcheck="false">
-      </div>
-      
-      <button class="btn-search" onclick="checkConfirmationCode()">
-        <span>Retrieve Flight Logs</span> <i class="fas fa-arrow-right"></i>
-      </button>
-      
-      <div class="error-box" id="error-message">
-        <i class="fas fa-exclamation-circle"></i> Invalid code format. Please verify your reference number and try again.
-      </div>
-    </section>
-
-    <section class="result-card" id="result-card">
-      <div class="success-header">
-        <div class="pulse-indicator"></div>
-        <span>Record Discovered Successfully</span>
-      </div>
-      
-      <div class="flight-data-preview">
-        <i class="fas fa-file-pdf file-icon"></i>
-        <div class="file-details">
-          <h3>Official Flight Manifest & Details</h3>
-          <p>Secure digital document format (PDF)</p>
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <div class="brand-name">AERO <span class="sub-brand">TRACK SERVICES</span></div>
+        </a>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-bars"></i>
         </div>
-      </div>
+    </header>
 
-      <a id="pdf-url" href="#" target="_blank" class="btn-download">
-        <i class="fas fa-cloud-download-alt"></i> Access Passenger Dashboard
-      </a>
+    <section class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=1200" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=1200" style="width:100%">
+        </div>
+        
+        <div class="hero-text-overlay">
+            <h1>Global Flight Credentials</h1>
+            <p>Access your passenger logs and digital manifest records instantly.</p>
+        </div>
     </section>
-  </main>
 
-  <script src="script.js"></script>
+    <main class="tracking-portal-area">
+        <div class="link-rectangle current-page">
+            <div class="blue-accent-bar"></div>
+            <h2>VERIFY FLIGHT CONFIRMATION</h2>
+        </div>
+        
+        <div class="tracker-input-container">
+            <div class="input-group">
+                <input type="text" id="confirmation-code" placeholder="ENTER CONFIRMATION CODE" autocomplete="off">
+                <button onclick="checkConfirmationCode()">RETRIEVE LOGS</button>
+            </div>
+            <div id="error-message" class="error-message" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i> Invalid confirmation code format. Please verify and try again.
+            </div>
+        </div>
+
+        <div id="result-card" class="result-display-box" style="display: none; padding: 25px; background: #fff;">
+            <div class="customer-welcome">
+                <i class="fas fa-passport"></i>
+                <div>
+                    <strong>RECORD DISCOVERED</strong>
+                    <p style="margin: 2px 0 0 0; font-size: 0.9rem; color: #555;">Official flight data log verified successfully.</p>
+                </div>
+            </div>
+
+            <div class="flight-document-pane">
+                <i class="fas fa-file-pdf file-icon" style="font-size: 2.5rem; color: #da1f2d; margin-bottom: 10px;"></i>
+                <h3 style="margin: 5px 0; font-size: 1.1rem;">Official Flight Manifest & Itinerary</h3>
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Secure digital document format (PDF)</p>
+                <a id="pdf-url" href="#" target="_blank" class="btn-download-action">ACCESS PASSENGER DASHBOARD</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="company-info-section">
+        <h2 class="section-title">Why Choose AeroTrack?</h2>
+        <div class="info-grid">
+            <div class="info-card aviation-theme">
+                <i class="fas fa-plane"></i>
+                <h3>Real-Time Sync</h3>
+                <p>Instant access to up-to-date schedule adjustments and terminal assignments.</p>
+            </div>
+            <div class="info-card aviation-theme">
+                <i class="fas fa-passport"></i>
+                <h3>Secure Cloud Infrastructure</h3>
+                <p>Fully encrypted data channels protect passenger identity records.</p>
+            </div>
+            <div class="info-card aviation-theme">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Global Alliance Network</h3>
+                <p>Interconnected coverage spanning major domestic and international networks.</p>
+            </div>
+            <div class="info-card aviation-theme">
+                <i class="fas fa-user-shield"></i>
+                <h3>Priority Credentials</h3>
+                <p>Seamless automated verification protocols built for premium travel management.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>GET IN TOUCH</h3>
+            <p>Email: <strong>support@aerotrackportal.com</strong></p>
+        </div>
+        <div class="partners-logo-area">
+            <h4>Global Airline Affiliates</h4>
+            <div class="partner-logos-container">
+                <img src="https://logodownload.org/wp-content/uploads/2020/03/star-alliance-logo.png" class="partner-logo" style="height: 35px;">
+                <img src="https://logodownload.org/wp-content/uploads/2019/07/skyteam-logo.png" class="partner-logo" style="height: 35px;">
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
