@@ -12,7 +12,7 @@
     <header class="header">
         <a href="index.html" class="logo-link">
             <div class="brand-container">
-                <i class="fas fa-shield-alt logo-icon"></i>
+                <i class="fas fa-plane logo-icon"></i>
                 <div class="brand-name">AERO<span class="sub-brand">TRACK GLOBAL</span></div>
             </div>
         </a>
@@ -25,20 +25,20 @@
     <nav class="dropdown-menu" id="dropdownMenu">
         <ul>
             <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-th-large"></i> Dashboard Home</a></li>
-            <li><a href="#trackerSection" onclick="closeMenu()"><i class="fas fa-key"></i> Secure Terminal Portal</a></li>
+            <li><a href="#trackerSection" onclick="closeMenu()"><i class="fas fa-passport"></i> Verify Flight</a></li>
             <li><a href="#complianceSection" onclick="closeMenu()"><i class="fas fa-file-contract"></i> Regulatory Compliance</a></li>
         </ul>
     </nav>
 
     <section class="slideshow-container">
-        <div class="mySlides fade" style="display: block;">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600" loading="eager" alt="Tarmac">
+        <div class="mySlides fade">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200" loading="eager" alt="Tarmac">
         </div>
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=600" loading="eager" alt="Landing">
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=1200" loading="eager" alt="Landing">
         </div>
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=600" loading="eager" alt="Terminal">
+            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=1200" loading="eager" alt="Terminal">
         </div>
         
         <div class="hero-text-overlay">
@@ -69,13 +69,13 @@
         </div>
         
         <div class="tracker-input-container">
-            <p class="input-instruction">Please enter your unique 6-character alphanumeric credential sequence below to audit flight statuses.</p>
+            <p class="input-instruction">Please enter your unique 6-character booking reference code below to view real-time flight records.</p>
             <div class="input-group">
-                <input type="text" id="confirmation-code" placeholder="ENTER VALIDATION KEY" autocomplete="off">
-                <button onclick="checkConfirmationCode()"><i class="fas fa-unlock-alt"></i> RUN AUDIT</button>
+                <input type="text" id="confirmation-code" placeholder="ENTER CONFIRMATION CODE" autocomplete="off">
+                <button onclick="checkConfirmationCode()"><i class="fas fa-search"></i> VERIFY FLIGHT</button>
             </div>
             <div id="error-message" class="error-message" style="display: none;">
-                <i class="fas fa-ban"></i> Access Denied. Unknown security sequence format. Please audit your document.
+                <i class="fas fa-ban"></i> Invalid code format. Unknown security sequence. Please verify your reference card.
             </div>
         </div>
 
