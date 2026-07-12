@@ -1,111 +1,68 @@
-:root {
-    --aerotrack-blue: #0056d2;
-    --aerotrack-slate: #1e293b;
-    --bg-gray: #f4f4f4;
-    --success-green: #16a34a;
-    --font-heading: 'Helvetica Neue', Arial, sans-serif;
+const codes = {
+  "AU9102": "https://drive.google.com/file/d/1PvvaVOiLXJtA42XUVXAqrrp-q9t3bOgJ/view?usp=drivesdk",
+  "DL1133": "https://drive.google.com/file/d/12vuZ82XXAh-SnYiXPTpItuOhbnzca3Zr/view?usp=drivesdk",
+  "UN9233": "https://drive.google.com/file/d/16u__1juxridZjG7FtL9PbBmaN3oI9ruk/view?usp=drivesdk",
+  "AA7130": "https://drive.google.com/file/d/1DvFzwZpgk_jV7UyM1bzalR-Q87xs6X4H/view?usp=drivesdk",
+  "UN1133": "https://drive.google.com/file/d/1c9oSLsnLY5vG_j6IaadMppL0uDTgcN3w/view?usp=drivesdk",
+  "QA1172": "https://drive.google.com/file/d/1P9YFhUcjelDVNcX1a6YQ5WcYm1byHuOR/view?usp=drivesdk",
+  "W4672": "https://drive.google.com/file/d/1e6UCVzy8EhJyPmT9BSRAdF9hXyGOv_Wi/view?usp=drivesdk"
+};
+
+function checkConfirmationCode() {
+  const input = document.getElementById("confirmation-code").value.trim().toUpperCase();
+  const errorBox = document.getElementById("error-message");
+  const resultCard = document.getElementById("result-card");
+  const pdfUrl = document.getElementById("pdf-url");
+
+  if (codes[input]) {
+    errorBox.style.display = "none";
+    pdfUrl.href = codes[input];
+    resultCard.style.display = "block";
+    resultCard.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    resultCard.style.display = "none";
+    errorBox.style.display = "block";
+  }
 }
 
-* { box-sizing: border-box; }
-
-body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #fcfcfc; overflow-x: hidden; }
-
-/* Header Branding Layout with Nesting Logo Elements */
-.header { background-color: var(--aerotrack-blue); display: flex; justify-content: space-between; padding: 15px 20px; align-items: center; position: relative; z-index: 1000; }
-.logo-link { text-decoration: none; }
-.brand-container { display: flex; align-items: center; gap: 10px; }
-.logo-airplane { color: #fff; font-size: 1.6rem; transform: rotate(45deg); transition: transform 0.4s ease; }
-.brand-container:hover .logo-airplane { transform: rotate(90deg); }
-
-/* Upgraded Logo Letterforms */
-.brand-name { font-family: var(--font-heading); font-weight: 900; font-size: 1.6rem; letter-spacing: 1px; color: #fff; line-height: 1; }
-.sub-brand { font-family: 'Arial', sans-serif; font-weight: 400; font-size: 0.75rem; display: block; margin-top: 2px; color: rgba(255, 255, 255, 0.85); letter-spacing: 0.5px; }
-.header .header-icons i { color: #fff; margin-left: 18px; cursor: pointer; transition: transform 0.2s ease; }
-.header .header-icons i:hover { transform: scale(1.15); }
-
-/* Dropdown Menu Tray Animation Styles */
-.dropdown-menu { position: absolute; top: -200px; left: 0; width: 100%; background: #ffffff; border-bottom: 3px solid var(--aerotrack-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 999; opacity: 0; }
-.dropdown-menu.open { top: 62px; opacity: 1; }
-.dropdown-menu ul { list-style: none; padding: 0; margin: 0; }
-.dropdown-menu li { border-bottom: 1px solid #eee; }
-.dropdown-menu a { display: flex; align-items: center; gap: 12px; padding: 16px 20px; color: #333; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: background 0.2s; }
-.dropdown-menu a:hover { background: #f8fafc; color: var(--aerotrack-blue); }
-
-/* Interactive Carousel Container Setup */
-.slideshow-container { position: relative; height: 320px; overflow: hidden; background: #000; }
-.mySlides { display: none; }
-.mySlides img { height: 320px; width: 100%; object-fit: cover; opacity: 0.5; transform: scale(1); transition: transform 4s ease; }
-.mySlides[style*="display: block"] img { transform: scale(1.05); }
-
-.hero-text-overlay { position: absolute; top: 50%; left: 20px; transform: translateY(-50%); color: white; animation: fadeInUp 1s ease; }
-.hero-text-overlay h1 { margin: 0 0 10px 0; font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; }
-.hero-text-overlay p { margin: 0; font-size: 1.05rem; color: #f1f5f9; }
-
-/* Interactive Grid Cards with Animation Shifting */
-.company-info-section { padding: 50px 20px; text-align: center; background: #fff; }
-.section-title { font-size: 1.75rem; font-weight: 800; margin-bottom: 30px; color: #0f172a; position: relative; display: inline-block; }
-.info-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.info-card.aviation-theme { background: var(--aerotrack-slate); color: #fff; padding: 35px 25px; border-radius: 6px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-.info-card.aviation-theme:hover { transform: translateY(-6px); box-shadow: 0 12px 20px -3px rgba(0,0,0,0.2); }
-.info-card.aviation-theme i { font-size: 2.5rem; color: #38bdf8; margin-bottom: 15px; transition: transform 0.3s ease; }
-.info-card.aviation-theme:hover i { transform: scale(1.1); }
-
-/* Tracking Interaction Portal Module Styling */
-.tracking-portal-area { border-top: 5px solid #0f172a; background: #fff; animation: fadeIn 0.8s ease; }
-.link-rectangle { display: flex; background: var(--bg-gray); height: 60px; align-items: center; }
-.blue-accent-bar { width: 10px; height: 100%; background: var(--aerotrack-blue); }
-.link-rectangle h2 { font-size: 1.1rem; font-weight: 900; margin-left: 15px; letter-spacing: 0.5px; color: #222; }
-.tracker-input-container { padding: 30px 20px; }
-.input-group { display: flex; border: 2px solid #ddd; border-radius: 6px; overflow: hidden; transition: border-color 0.2s; }
-.input-group:focus-within { border-color: var(--aerotrack-blue); box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.15); }
-input { flex: 1; padding: 16px; border: none; outline: none; font-size: 1rem; font-weight: 600; text-transform: uppercase; }
-button { background: #0f172a; color: white; padding: 0 28px; font-weight: 900; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s; font-size: 0.95rem; letter-spacing: 0.5px; }
-button:hover { background: var(--aerotrack-blue); }
-button:active { transform: scale(0.98); }
-
-.error-message { margin-top: 15px; padding: 12px; background: #fff1f0; border: 1px solid #ffa39e; color: #cf1322; border-radius: 4px; font-weight: bold; font-size: 0.9rem; animation: shake 0.4s ease; }
-
-/* Tracking Results Panel Styles */
-.result-display-box { border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); margin: 0 20px 40px 20px; border-radius: 6px; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-.customer-welcome { background: #f8fafc; border-left: 5px solid var(--success-green); padding: 15px; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; border-radius: 0 6px 6px 0; }
-.customer-welcome i { color: var(--success-green); font-size: 1.8rem; }
-
-.flight-document-pane { text-align: center; background: #fafafa; border: 1px dashed #cbd5e1; padding: 30px; border-radius: 6px; }
-.btn-download-action { display: inline-block; background: var(--aerotrack-slate); color: white; text-decoration: none; padding: 14px 30px; font-weight: 900; font-size: 0.95rem; border-radius: 4px; transition: background 0.2s; }
-.btn-download-action:hover { background: var(--aerotrack-blue); }
-
-/* Layout Structure Rules for Global Affiliate Partners & Footer */
-.footer { background: #fff; border-top: 5px solid var(--aerotrack-blue); padding: 40px 20px; text-align: center; }
-.partners-logo-area { margin-top: 30px; border-top: 1px solid #f1f5f9; padding-top: 25px; }
-.partner-logos-container { display: flex; justify-content: center; align-items: center; gap: 30px; }
-.partner-logo { max-width: 130px; filter: grayscale(100%); opacity: 0.45; }
-
-/* Desktop View Rules */
-@media (min-width: 768px) { 
-    .info-grid { grid-template-columns: repeat(4, 1fr); } 
-    .hero-text-overlay h1 { font-size: 3rem; }
-    .slideshow-container, .mySlides img { height: 380px; }
+// Navigation Tray Toggle Functionality
+function toggleMenu() {
+  const menu = document.getElementById("dropdownMenu");
+  const icon = document.getElementById("menuToggle");
+  
+  if (menu.classList.contains("open")) {
+    menu.classList.remove("open");
+    icon.className = "fas fa-bars";
+  } else {
+    menu.classList.add("open");
+    icon.className = "fas fa-times"; 
+  }
 }
 
-/* Dedicated Mobile Smart-Fit Adjustments */
-@media (max-width: 480px) {
-    .slideshow-container, .mySlides img { height: 240px; }
-    .hero-text-overlay h1 { font-size: 1.6rem; }
-    .hero-text-overlay p { font-size: 0.95rem; }
-    .tracker-input-container { padding: 15px 10px; }
-
-    /* Vertical conversion prevents side text clipping */
-    .input-group { flex-direction: column; border: none; gap: 10px; }
-    input { width: 100%; border: 2px solid #ddd; border-radius: 6px; padding: 14px; font-size: 0.9rem; }
-    button { width: 100%; padding: 14px; border-radius: 6px; font-size: 0.9rem; height: auto; }
-    
-    .result-display-box { margin: 0 10px 20px 10px; padding: 15px !important; }
+function closeMenu() {
+  const menu = document.getElementById("dropdownMenu");
+  const icon = document.getElementById("menuToggle");
+  menu.classList.remove("open");
+  icon.className = "fas fa-bars";
 }
 
-/* Animations Layout Keyframe Specifications */
-.fade { animation: fadeEffect 1.5s ease-in-out; }
-@keyframes fadeEffect { from { opacity: 0.3; } to { opacity: 1; } }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(-50%); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+// Automatic Background Image Slideshow Engine 
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1; }    
+  
+  if (slides.length > 0) {
+    slides[slideIndex - 1].style.display = "block";  
+    setTimeout(showSlides, 4000); 
+  }
+}
