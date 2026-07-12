@@ -41,7 +41,7 @@ body {
 .status-indicator i { font-size: 0.6rem; margin-right: 4px; animation: pulse 2s infinite; }
 .header #menuToggle { color: var(--text-light); cursor: pointer; font-size: 1.2rem; }
 
-/* Navigation Tray Animation Styles */
+/* Navigation Tray Styles */
 .dropdown-menu { position: absolute; top: -300px; left: 0; width: 100%; background: #050B14; border-bottom: 2px solid var(--gold-accent); box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 999; opacity: 0; }
 .dropdown-menu.open { top: 68px; opacity: 1; }
 .dropdown-menu ul { list-style: none; padding: 0; margin: 0; }
@@ -49,14 +49,13 @@ body {
 .dropdown-menu a { display: flex; align-items: center; gap: 14px; padding: 18px 25px; color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
 .dropdown-menu a:hover { background: var(--luxury-card); color: var(--gold-accent); padding-left: 30px; }
 
-/* Interactive Carousel Container Setup */
+/* Interactive Fixed Slideshow Box - Solved Blank Image Glitch */
 .slideshow-container { position: relative; height: 350px; overflow: hidden; background: #02060D; }
-.mySlides { display: none; }
-.mySlides img { height: 350px; width: 100%; object-fit: cover; opacity: 0.25; transform: scale(1); transition: transform 6s ease; }
-.mySlides[style*="display: block"] img { transform: scale(1.08); }
+.mySlides { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.mySlides img { height: 100%; width: 100%; object-fit: cover; opacity: 0.25; }
 
 .hero-badge { display: inline-block; font-size: 0.7rem; font-weight: 900; background: var(--gold-accent); color: var(--luxury-dark); padding: 4px 8px; border-radius: 3px; letter-spacing: 1px; margin-bottom: 12px; }
-.hero-text-overlay { position: absolute; top: 50%; left: 30px; transform: translateY(-50%); max-width: 600px; animation: fadeInUp 1s ease; }
+.hero-text-overlay { position: absolute; top: 50%; left: 30px; transform: translateY(-50%); max-width: 600px; z-index: 10; }
 .hero-text-overlay h1 { margin: 0 0 12px 0; font-size: 2.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-light); }
 .hero-text-overlay p { margin: 0; font-size: 1.05rem; color: var(--text-muted); line-height: 1.4; }
 
@@ -125,7 +124,10 @@ button:active { transform: scale(0.98); }
 .partner-logos-container { display: flex; justify-content: center; align-items: center; gap: 40px; }
 .partner-logo { max-height: 25px; filter: brightness(0) invert(1); opacity: 0.25; }
 
-/* Desktop View Rules */
+/* Animations Keyframe Specifications - Fine Tuned Smooth Fading */
+.fade { animation: fadeEffect 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+@keyframes fadeEffect { from { opacity: 0; } to { opacity: 1; } }
+
 @media (min-width: 768px) { 
     .info-grid { grid-template-columns: repeat(2, 1fr); max-width: 1100px; margin: 0 auto; } 
     .hero-text-overlay h1 { font-size: 3.2rem; }
@@ -139,7 +141,6 @@ button:active { transform: scale(0.98); }
     .info-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Dedicated Mobile Adjustments */
 @media (max-width: 480px) {
     .slideshow-container, .mySlides img { height: 260px; }
     .hero-text-overlay h1 { font-size: 1.7rem; }
@@ -147,17 +148,11 @@ button:active { transform: scale(0.98); }
     .tracker-input-container { padding: 20px 15px; }
     .pdf-viewer-container { height: 360px; width: calc(100% - 20px); }
     .guide-box { flex-direction: column; gap: 12px; }
-
-    /* Stack configuration prevents clipping */
     .input-group { flex-direction: column; border: none; gap: 10px; background: transparent; padding: 0; }
     input { width: 100%; background: #0A0F1D; border: 1px solid #334155; border-radius: 6px; padding: 16px; font-size: 0.95rem; }
     button { width: 100%; padding: 16px; border-radius: 6px; font-size: 0.95rem; height: auto; }
 }
 
-/* Animations Layout Keyframe Specifications */
-.fade { animation: fadeEffect 1.5s ease-in-out; }
-@keyframes fadeEffect { from { opacity: 0.3; } to { opacity: 1; } }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(-50%); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
