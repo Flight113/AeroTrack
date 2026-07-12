@@ -11,23 +11,34 @@
 
     <header class="header">
         <a href="index.html" class="logo-link">
-            <div class="brand-name">AERO <span class="sub-brand">TRACK SERVICES</span></div>
+            <div class="brand-container">
+                <i class="fas fa-plane logo-airplane"></i>
+                <div class="brand-name">AERO <span class="sub-brand">TRACK SERVICES</span></div>
+            </div>
         </a>
         <div class="header-icons">
             <i class="fas fa-search"></i>
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars" id="menuToggle" onclick="toggleMenu()"></i>
         </div>
     </header>
 
+    <nav class="dropdown-menu" id="dropdownMenu">
+        <ul>
+            <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#trackerSection" onclick="closeMenu()"><i class="fas fa-search-location"></i> Track Your Flight</a></li>
+            <li><a href="#contactSection" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+    </nav>
+
     <section class="slideshow-container">
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200" style="width:100%">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200" alt="Plane on tarmac">
         </div>
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=1200" style="width:100%">
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=1200" alt="Plane landing">
         </div>
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=1200" style="width:100%">
+            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=1200" alt="Airport terminal view">
         </div>
         
         <div class="hero-text-overlay">
@@ -36,7 +47,7 @@
         </div>
     </section>
 
-    <main class="tracking-portal-area">
+    <main class="tracking-portal-area" id="trackerSection">
         <div class="link-rectangle current-page">
             <div class="blue-accent-bar"></div>
             <h2>VERIFY FLIGHT CONFIRMATION</h2>
@@ -45,7 +56,7 @@
         <div class="tracker-input-container">
             <div class="input-group">
                 <input type="text" id="confirmation-code" placeholder="ENTER CONFIRMATION CODE" autocomplete="off">
-                <button onclick="checkConfirmationCode()">RETRIEVE LOGS</button>
+                <button onclick="checkConfirmationCode()">VERIFY NOW</button>
             </div>
             <div id="error-message" class="error-message" style="display: none;">
                 <i class="fas fa-exclamation-circle"></i> Invalid confirmation code format. Please verify and try again.
@@ -96,7 +107,7 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="contactSection">
         <div class="footer-content">
             <h3>GET IN TOUCH</h3>
             <p>Email: <strong>support@aerotrackportal.com</strong></p>
