@@ -46,7 +46,7 @@
         
         <div class="hero-text-overlay">
             <h1>Global Flight Credentials</h1>
-            <p>Access your passenger logs instantly.</p>
+            <p>Verify your departure schedule and terminal details instantly.</p>
         </div>
     </section>
 
@@ -78,10 +78,14 @@
             </div>
 
             <div class="flight-document-pane">
-                <i class="fas fa-file-pdf file-icon" style="font-size: 2.5rem; color: #da1f2d; margin-bottom: 10px;"></i>
-                <h3 style="margin: 5px 0; font-size: 1.1rem;">Official Flight Manifest & Itinerary</h3>
-                <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Secure digital document format (PDF)</p>
-                <a id="pdf-url" href="#" target="_blank" class="btn-download-action">ACCESS PASSENGER DASHBOARD</a>
+                <h3 style="margin: 5px 0 15px 0; font-size: 1.1rem;">Official Flight Manifest & Itinerary</h3>
+                
+                <!-- Embedded PDF Viewer Window -->
+                <div class="pdf-viewer-container">
+                    <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+                </div>
+
+                <a id="pdf-url" href="#" target="_blank" class="btn-download-action">DOWNLOAD PASSENGER MANIFEST</a>
             </div>
         </div>
     </main>
