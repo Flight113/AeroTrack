@@ -35,7 +35,7 @@ function toggleMenu() {
     icon.className = "fas fa-bars";
   } else {
     menu.classList.add("open");
-    icon.className = "fas fa-times"; // Changes icon smoothly to an 'X'
+    icon.className = "fas fa-times"; 
   }
 }
 
@@ -46,7 +46,7 @@ function closeMenu() {
   icon.className = "fas fa-bars";
 }
 
-// Fixed Automatic Background Image Slideshow Engine 
+// Automatic Background Image Slideshow Engine 
 let slideIndex = 0;
 showSlides();
 
@@ -63,6 +63,6 @@ function showSlides() {
   
   if (slides.length > 0) {
     slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 4000); // Transitions exactly every 4 seconds
+    setTimeout(showSlides, 4000); 
   }
 }
