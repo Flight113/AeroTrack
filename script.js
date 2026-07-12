@@ -18,11 +18,15 @@ function checkConfirmationCode() {
   if (codes[input]) {
     errorBox.style.display = "none";
     
-    // Convert Google Drive link to preview layout and append login/iframe permission token (?pli=1)
+    // Convert regular view link to preview layout for internal site display
     let embedUrl = codes[input].replace('/view?usp=drivesdk', '/preview?pli=1');
-    
     pdfViewer.src = embedUrl;
-    pdfUrlBtn.href = codes[input]; // Keeps download fallback accessible
+    
+    // FORCED DOWNLOAD FIX: Parse document ID out of link and pipe directly into Drive Export API
+    let fileId = codes[input].match(/\/d\/([a-zA-Z0-9-_]+)/)[1];
+    let downloadUrl = "https://docs.google.com/uc?export=download&id=" + fileId;
+    
+    pdfUrlBtn.href = downloadUrl;
     
     resultCard.style.display = "block";
     resultCard.scrollIntoView({ behavior: 'smooth' });
