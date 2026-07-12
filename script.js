@@ -12,11 +12,18 @@ function checkConfirmationCode() {
   const input = document.getElementById("confirmation-code").value.trim().toUpperCase();
   const errorBox = document.getElementById("error-message");
   const resultCard = document.getElementById("result-card");
-  const pdfUrl = document.getElementById("pdf-url");
+  const pdfViewer = document.getElementById("pdf-viewer");
+  const pdfUrlBtn = document.getElementById("pdf-url");
 
   if (codes[input]) {
     errorBox.style.display = "none";
-    pdfUrl.href = codes[input];
+    
+    // Convert Google Drive view URLs to a preview mode so they embed correctly inside the iframe frame
+    let embedUrl = codes[input].replace('/view?usp=drivesdk', '/preview');
+    
+    pdfViewer.src = embedUrl;
+    pdfUrlBtn.href = codes[input]; // The actual link handles download options
+    
     resultCard.style.display = "block";
     resultCard.scrollIntoView({ behavior: 'smooth' });
   } else {
