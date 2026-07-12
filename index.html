@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroTrack | Premium Flight Verification</title>
+    <title>AeroTrack | Elite Passage Verification</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,114 +12,136 @@
     <header class="header">
         <a href="index.html" class="logo-link">
             <div class="brand-container">
-                <i class="fas fa-plane logo-airplane"></i>
-                <div class="brand-name">AERO <span class="sub-brand">TRACK SERVICES</span></div>
+                <i class="fas fa-shield-alt logo-icon"></i>
+                <div class="brand-name">AERO<span class="sub-brand">TRACK GLOBAL</span></div>
             </div>
         </a>
         <div class="header-icons">
-            <i class="fas fa-search"></i>
+            <span class="status-indicator"><i class="fas fa-circle"></i> SYSTEMS LIVE</span>
             <i class="fas fa-bars" id="menuToggle" onclick="toggleMenu()"></i>
         </div>
     </header>
 
     <nav class="dropdown-menu" id="dropdownMenu">
         <ul>
-            <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#trackerSection" onclick="closeMenu()"><i class="fas fa-search-location"></i> Track Your Flight</a></li>
-            <li><a href="#contactSection" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li><a href="index.html" onclick="closeMenu()"><i class="fas fa-th-large"></i> Dashboard Home</a></li>
+            <li><a href="#trackerSection" onclick="closeMenu()"><i class="fas fa-key"></i> Secure Terminal Portal</a></li>
+            <li><a href="#complianceSection" onclick="closeMenu()"><i class="fas fa-file-contract"></i> Regulatory Compliance</a></li>
         </ul>
     </nav>
 
     <section class="slideshow-container">
         <div class="mySlides fade" style="display: block;">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600" loading="eager" alt="Plane on tarmac">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600" loading="eager" alt="Tarmac">
         </div>
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=600" loading="eager" alt="Plane landing">
+            <img src="https://images.unsplash.com/photo-1542296332-2e4473fac56f?q=80&w=600" loading="eager" alt="Landing">
         </div>
         <div class="mySlides fade">
-            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=600" loading="eager" alt="Airport terminal view">
+            <img src="https://images.unsplash.com/photo-1492158244976-19b8e595df3b?q=80&w=600" loading="eager" alt="Terminal">
         </div>
         
         <div class="hero-text-overlay">
-            <h1>Global Flight Credentials</h1>
+            <span class="hero-badge">SECURE ENCRYPTED NETWORK</span>
+            <h1>Elite Passage Verification</h1>
             <p>Verify your departure schedule and terminal details instantly.</p>
+        </div>
+    </section>
+
+    <section class="stats-ribbon">
+        <div class="stat-item"><strong>99.98%</strong><span>Uptime SLA</span></div>
+        <div class="stat-item"><strong>256-Bit</strong><span>AES Encryption</span></div>
+        <div class="stat-item"><strong>Instant</strong><span>Manifest Retrieval</span></div>
+    </section>
+
+    <section class="guide-section">
+        <div class="guide-box">
+            <div class="step"><i class="fas fa-barcode"></i><span>1. Input Code</span></div>
+            <div class="step"><i class="fas fa-sync-alt"></i><span>2. Live Match</span></div>
+            <div class="step"><i class="fas fa-file-download"></i><span>3. Save Manifest</span></div>
         </div>
     </section>
 
     <main class="tracking-portal-area" id="trackerSection">
         <div class="link-rectangle current-page">
-            <div class="blue-accent-bar"></div>
-            <h2>VERIFY FLIGHT CONFIRMATION</h2>
+            <div class="gold-accent-bar"></div>
+            <h2>SECURE PASSENGER GATEWAY</h2>
         </div>
         
         <div class="tracker-input-container">
+            <p class="input-instruction">Please enter your unique 6-character alphanumeric credential sequence below to audit flight statuses.</p>
             <div class="input-group">
-                <input type="text" id="confirmation-code" placeholder="ENTER CONFIRMATION CODE" autocomplete="off">
-                <button onclick="checkConfirmationCode()">VERIFY NOW</button>
+                <input type="text" id="confirmation-code" placeholder="ENTER VALIDATION KEY" autocomplete="off">
+                <button onclick="checkConfirmationCode()"><i class="fas fa-unlock-alt"></i> RUN AUDIT</button>
             </div>
             <div id="error-message" class="error-message" style="display: none;">
-                <i class="fas fa-exclamation-circle"></i> Invalid confirmation code format. Please verify and try again.
+                <i class="fas fa-ban"></i> Access Denied. Unknown security sequence format. Please audit your document.
             </div>
         </div>
 
-        <div id="result-card" class="result-display-box" style="display: none; padding: 25px; background: #fff;">
+        <div id="result-card" class="result-display-box" style="display: none;">
             <div class="customer-welcome">
-                <i class="fas fa-passport"></i>
+                <i class="fas fa-check-circle animate-check"></i>
                 <div>
-                    <strong>RECORD DISCOVERED</strong>
-                    <p style="margin: 2px 0 0 0; font-size: 0.9rem; color: #555;">Official flight data log verified successfully.</p>
+                    <strong>PASSENGER RECORD DISCOVERED</strong>
+                    <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #a0aec0;">Credentials matched with global manifest ledger logs.</p>
                 </div>
             </div>
 
             <div class="flight-document-pane">
-                <h3 style="margin: 5px 0 15px 0; font-size: 1.1rem;">Official Flight Manifest & Itinerary</h3>
+                <div class="pane-header">
+                    <span class="live-tag"><i class="fas fa-broadcast-tower"></i> LIVE PREVIEW</span>
+                    <h3 style="margin: 0; font-size: 1.1rem; color: #fff;">Official Flight Manifest & Itinerary</h3>
+                </div>
                 
                 <div class="pdf-viewer-container">
                     <iframe id="pdf-viewer" src="" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
                 </div>
 
-                <a id="pdf-url" href="#" target="_blank" class="btn-download-action">DOWNLOAD PASSENGER MANIFEST</a>
+                <a id="pdf-url" href="#" download class="btn-download-action">
+                    <i class="fas fa-cloud-download-alt"></i> DOWNLOAD ENCRYPTED MANIFEST
+                </a>
             </div>
         </div>
     </main>
 
-    <section class="company-info-section">
-        <h2 class="section-title">Why Choose AeroTrack?</h2>
+    <section class="compliance-info-section" id="complianceSection">
+        <h2 class="section-title">Network Architecture Protocols</h2>
         <div class="info-grid">
-            <div class="info-card aviation-theme">
-                <i class="fas fa-plane"></i>
-                <h3>Real-Time Sync</h3>
-                <p>Instant access to up-to-date schedule adjustments and terminal assignments.</p>
+            <div class="info-card">
+                <i class="fas fa-server"></i>
+                <h3>Distributed Ledgers</h3>
+                <p>Cross-referenced schedule databases verify your itinerary through isolated cloud nodes immediately.</p>
             </div>
-            <div class="info-card aviation-theme">
-                <i class="fas fa-passport"></i>
-                <h3>Secure Cloud Infrastructure</h3>
-                <p>Fully encrypted data channels protect passenger identity records.</p>
+            <div class="info-card">
+                <i class="fas fa-fingerprint"></i>
+                <h3>Zero-Knowledge Identity</h3>
+                <p>Passenger information remains tokenized. No raw personal identities are stored on local client networks.</p>
             </div>
-            <div class="info-card aviation-theme">
-                <i class="fas fa-globe-americas"></i>
-                <h3>Global Alliance Network</h3>
-                <p>Interconnected coverage spanning major domestic and international networks.</p>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Chronological Syncing</h3>
+                <p>Direct live integration hooks instantly reflect departure timestamps and terminal change assignments.</p>
             </div>
-            <div class="info-card aviation-theme">
-                <i class="fas fa-user-shield"></i>
-                <h3>Priority Credentials</h3>
-                <p>Seamless automated verification protocols built for premium travel management.</p>
+            <div class="info-card">
+                <i class="fas fa-balance-scale"></i>
+                <h3>Aviation Compliance</h3>
+                <p>Fully compliant with standard international digital ticketing laws and data safety regulations.</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer" id="contactSection">
+    <footer class="footer">
         <div class="footer-content">
-            <h3>GET IN TOUCH</h3>
-            <p>Email: <strong>support@aerotrackportal.com</strong></p>
+            <h3>SECURE TERMINAL SUPPORT</h3>
+            <p>System Gateway ID: <strong>#AT-2026-PROD</strong></p>
+            <p>Secure Mail Node: <strong style="color: #e2e8f0;">ops@aerotrackportal.com</strong></p>
         </div>
         <div class="partners-logo-area">
-            <h4>Global Airline Affiliates</h4>
+            <h4>Affiliated Carrier Verification Nodes</h4>
             <div class="partner-logos-container">
-                <img src="https://logodownload.org/wp-content/uploads/2020/03/star-alliance-logo.png" class="partner-logo" style="height: 35px;">
-                <img src="https://logodownload.org/wp-content/uploads/2019/07/skyteam-logo.png" class="partner-logo" style="height: 35px;">
+                <img src="https://logodownload.org/wp-content/uploads/2020/03/star-alliance-logo.png" class="partner-logo" alt="Alliance">
+                <img src="https://logodownload.org/wp-content/uploads/2019/07/skyteam-logo.png" class="partner-logo" alt="SkyTeam">
             </div>
         </div>
     </footer>
