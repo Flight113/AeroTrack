@@ -18,11 +18,11 @@ function checkConfirmationCode() {
   if (codes[input]) {
     errorBox.style.display = "none";
     
-    // Convert Google Drive view URLs to a preview mode so they embed correctly inside the iframe frame
-    let embedUrl = codes[input].replace('/view?usp=drivesdk', '/preview');
+    // Convert Google Drive link to preview layout and append login/iframe permission token (?pli=1)
+    let embedUrl = codes[input].replace('/view?usp=drivesdk', '/preview?pli=1');
     
     pdfViewer.src = embedUrl;
-    pdfUrlBtn.href = codes[input]; // The actual link handles download options
+    pdfUrlBtn.href = codes[input]; // Keeps download fallback accessible
     
     resultCard.style.display = "block";
     resultCard.scrollIntoView({ behavior: 'smooth' });
