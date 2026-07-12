@@ -18,11 +18,9 @@ function checkConfirmationCode() {
   if (codes[input]) {
     errorBox.style.display = "none";
     
-    // Convert regular view link to preview layout for internal site display
     let embedUrl = codes[input].replace('/view?usp=drivesdk', '/preview?pli=1');
     pdfViewer.src = embedUrl;
     
-    // FORCED DOWNLOAD FIX: Parse document ID out of link and pipe directly into Drive Export API
     let fileId = codes[input].match(/\/d\/([a-zA-Z0-9-_]+)/)[1];
     let downloadUrl = "https://docs.google.com/uc?export=download&id=" + fileId;
     
@@ -36,7 +34,6 @@ function checkConfirmationCode() {
   }
 }
 
-// Navigation Tray Toggle Functionality
 function toggleMenu() {
   const menu = document.getElementById("dropdownMenu");
   const icon = document.getElementById("menuToggle");
@@ -57,7 +54,7 @@ function closeMenu() {
   icon.className = "fas fa-bars";
 }
 
-// Automatic Background Image Slideshow Engine 
+// Fixed Carousel Animation Engine - Prevents blank slide transitions
 let slideIndex = 0;
 showSlides();
 
@@ -74,6 +71,7 @@ function showSlides() {
   
   if (slides.length > 0) {
     slides[slideIndex - 1].style.display = "block";  
-    setTimeout(showSlides, 4000); 
+    // Extended timing slightly to coordinate perfectly with CSS keyframes
+    setTimeout(showSlides, 5000); 
   }
 }
