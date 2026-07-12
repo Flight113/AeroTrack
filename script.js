@@ -25,20 +25,44 @@ function checkConfirmationCode() {
   }
 }
 
-// Banner Slideshow Logic matching your previous portal style setup
+// Navigation Tray Toggle Functionality
+function toggleMenu() {
+  const menu = document.getElementById("dropdownMenu");
+  const icon = document.getElementById("menuToggle");
+  
+  if (menu.classList.contains("open")) {
+    menu.classList.remove("open");
+    icon.className = "fas fa-bars";
+  } else {
+    menu.classList.add("open");
+    icon.className = "fas fa-times"; // Changes icon smoothly to an 'X'
+  }
+}
+
+function closeMenu() {
+  const menu = document.getElementById("dropdownMenu");
+  const icon = document.getElementById("menuToggle");
+  menu.classList.remove("open");
+  icon.className = "fas fa-bars";
+}
+
+// Fixed Automatic Background Image Slideshow Engine 
 let slideIndex = 0;
 showSlides();
 
 function showSlides() {
   let i;
   let slides = document.getElementsByClassName("mySlides");
+  
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
+  
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  if(slides.length > 0) {
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 4000); // Transitions slide views every 4 seconds
+  if (slideIndex > slides.length) { slideIndex = 1; }    
+  
+  if (slides.length > 0) {
+    slides[slideIndex - 1].style.display = "block";  
+    setTimeout(showSlides, 4000); // Transitions exactly every 4 seconds
   }
 }
