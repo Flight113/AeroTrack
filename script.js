@@ -4,7 +4,7 @@ const codes = {
   "AA9971": "https://drive.google.com/file/d/11_193pvDwX4L3zzFDDqZOahPo9QfQn1g/view?usp=drivesdk",
   "AL6113": "https://drive.google.com/file/d/1dEzJibCQK85eDIeFCxzFZN0umOaR2EBo/view?usp=drivesdk",
   "TK8181": "https://drive.google.com/file/d/1frejq9YxLGi_dQlvQGLF0wzIA8kg7YHR/view?usp=drivesdk",
-  "AA9110": "https://drive.google.com/file/d/14H39hz4i8odF_hxtELBlQker6TavVIZ6/view?usp=drivesdk",
+  "FL6113": "https://drive.google.com/file/d/1MwGlILfa73jaqfLUBi4tpEMVUo-HdyUg/view?usp=drivesdk",
   "DL7199": "https://drive.google.com/file/d/1W1gFIYl-NrqD-TlPaUdGNJ7lOnBDhgvs/view?usp=drivesdk"
 };
 
